@@ -4,6 +4,7 @@ export const Container = styled.main`
 	display: flex;
 	width: 100%;
 	height: 100vh;
+	background-color: ${({ theme }) => theme.background.default};
 `;
 export const Aside = styled.aside`
 	width: 250px;

@@ -6,7 +6,7 @@ interface IProps {
 	};
 	background: {
 		dark: string;
-		background: string;
+		default: string;
 	};
 }
 
@@ -18,7 +18,7 @@ const Theme: IProps = {
 	},
 	background: {
 		dark: "#1A1919",
-		background: "#F8F7F1",
+		default: "#F8F7F1",
 	},
 };
 
