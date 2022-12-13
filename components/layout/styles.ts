@@ -25,7 +25,7 @@ export const ListNavigation = styled.section`
 	gap: 25px;
 	color: rgba(255, 255, 255, 0.7);
 `;
-export const Item = styled.section``;
+export const Item = styled.li``;
 export const Avatar = styled.article`
 	height: 100px;
 	width: 100px;

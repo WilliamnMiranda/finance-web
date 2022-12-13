@@ -16,7 +16,7 @@ const NavBar = () => {
       <C.Navigation>
         <C.ListNavigation>
           <C.Item>
-            <Link href="/notifications"> Dashboard </Link>
+            <Link href="/notifications">  Dashboard </Link>
           </C.Item>
           <C.Item>
             <Link href="/notifications"> Transações </Link>
