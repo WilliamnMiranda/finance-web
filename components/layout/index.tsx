@@ -5,7 +5,6 @@ import Link from 'next/link'
 interface IProps {
   children: ReactNode
 }
-
 const NavBar = () => {
   return (
     <C.Aside>
@@ -45,3 +44,4 @@ const Layout = ({ children }: IProps) => {
   )
 }
 export default Layout
+

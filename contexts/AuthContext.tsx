@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }: IProps) => {
     const data = { email, password }
     const user = await userServices.login(data)
     if (user) {
-      setCookie(undefined, 'fincane-token', user.token, { maxAge: 20000000000 })
+      setCookie(undefined, 'finance-token', user.token, { maxAge: 20000000000 })
       setUser(user)
       Router.push('/dashboard')
     } else {
