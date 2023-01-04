@@ -11,10 +11,12 @@ function FormLogin() {
   const onSubmit: SubmitHandler<IFormInput> = data => console.log(data);
   return (
     <C.Form onSubmit={handleSubmit(onSubmit)}>
-      <C.InputForm placeholder='Digite seu email' {...register("firstName")} />
-      <C.InputForm placeholder='Digite sua senha' {...register("gender")} />
-      <p>Esqueceu sua senha ?</p>
-      <button>teste</button>
+      <C.ContainerInfoLogin>
+        <C.InputForm placeholder='Digite seu email' {...register("firstName")} />
+        <C.InputForm placeholder='Digite sua senha' {...register("gender")} />
+        <p>Esqueceu sua senha ?</p>
+      </C.ContainerInfoLogin>
+      <C.ButtonLogin>Login</C.ButtonLogin>
 
       <C.ContainerLoginSocial>
         <p> Or continue with </p>
