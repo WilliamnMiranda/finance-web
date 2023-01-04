@@ -17,12 +17,14 @@ export const ContainerAll = styled.section`
 		padding: 40px;
 		align-items: center;
 	}
+	@media (max-width: 1700px) {
+		padding: 200px 100px;
+	}
 `;
 export const ContainerLogin = styled.div`
-	width: 24%;
+	width: 29%;
 	height: 100%;
 	display: flex;
-	background-color: grey;
 	@media (max-width: 1200px) {
 		height: 100px;
 		width: 100%;
@@ -30,7 +32,7 @@ export const ContainerLogin = styled.div`
 `;
 
 export const ContainerIntro = styled.div`
-	width: 75%;
+	width: 70%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;

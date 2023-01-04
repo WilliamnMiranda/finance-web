@@ -14,12 +14,12 @@ function FormLogin() {
       <C.ContainerInfoLogin>
         <C.InputForm placeholder='Digite seu email' {...register("firstName")} />
         <C.InputForm placeholder='Digite sua senha' {...register("gender")} />
-        <p>Esqueceu sua senha ?</p>
+        <p> Esqueceu sua senha ? </p>
       </C.ContainerInfoLogin>
       <C.ButtonLogin>Login</C.ButtonLogin>
 
       <C.ContainerLoginSocial>
-        <p> Or continue with </p>
+        <span> Or continue with </span>
       </C.ContainerLoginSocial>
     </C.Form>
   )
