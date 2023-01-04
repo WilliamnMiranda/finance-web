@@ -3,6 +3,7 @@ import { parseCookies } from 'nookies'
 import * as C from './styles'
 import Lottie from 'react-lottie'
 import LoginImage from '../../assets/login_lottie.json'
+import FormLogin from "./form";
 const Login = () => {
   const defaultOptions = {
     loop: true,
@@ -37,6 +38,7 @@ const Login = () => {
           </C.ContainerImageLottie>
         </C.ContainerIntro>
         <C.ContainerLogin>
+          <FormLogin />
         </C.ContainerLogin>
       </C.ContainerAll>
     </C.Container>
