@@ -1,4 +1,8 @@
 import styled from "styled-components";
+
+interface IInputForm {
+  error: boolean
+}
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
