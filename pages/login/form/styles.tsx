@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface IInputForm {
-  error: boolean
+  error?: boolean
 }
 export const Form = styled.form`
   display: flex;
@@ -17,7 +17,7 @@ export const Form = styled.form`
     cursor: pointer;
   }
 `;
-export const InputForm = styled.input`
+export const InputForm = styled.input<IInputForm>`
   background-color: rgba(234,240,247,1);
   height: 50px;
   padding: 10px;
@@ -26,6 +26,7 @@ export const InputForm = styled.input`
   width: 100%;
   margin-bottom: 20px;
   border-radius: 5px;
+  border:${({ error }) => error ? '1px solid red' : ''}
 `;
 
 export const ContainerLoginSocial = styled.section``
