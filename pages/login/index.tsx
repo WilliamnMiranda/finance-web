@@ -4,7 +4,7 @@ import * as C from './styles'
 import Lottie from 'react-lottie'
 import LoginImage from '../../assets/login_lottie.json'
 import FormLogin from "./form";
-import nookies from 'nookies'
+import { ToastContainer } from "react-toastify";
 const Login = () => {
   const defaultOptions = {
     loop: true,

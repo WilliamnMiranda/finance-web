@@ -6,12 +6,19 @@ import { ILogin } from '../../../types/user';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation } from '@tanstack/react-query';
 import validateLogin from './validateForm';
+import { toast } from "react-toastify";
+
 function FormLogin() {
   const { login } = useUser()
   const { register, handleSubmit, formState: { errors } } = useForm<ILogin>({
     resolver: yupResolver(validateLogin)
   });
-  const mutation = useMutation((data: ILogin) => login(data))
+  const customId = "custom-id-yes";
+  const mutation = useMutation((data: ILogin) => toast.promise(login(data), {
+    pending: 'Promise is pending',
+    success: 'Promise resolved 👌',
+    error: 'Promise rejected 🤯',
+  }, { toastId: customId }))
   const onSubmit: SubmitHandler<ILogin> = data => mutation.mutate(data);
   return (
     <C.Form onSubmit={handleSubmit(onSubmit)}>
