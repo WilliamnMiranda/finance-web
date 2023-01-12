@@ -5,8 +5,6 @@ import Lottie from 'react-lottie'
 import LoginImage from '../../assets/login_lottie.json'
 import FormLogin from "./form";
 import nookies from 'nookies'
-import { useQuery } from "@tanstack/react-query";
-import useUser from "../../hooks/useUser";
 const Login = () => {
   const defaultOptions = {
     loop: true,
@@ -16,13 +14,6 @@ const Login = () => {
       preserveAspectRatio: 'xMidYMid slice'
     }
   };
-
-  const { login } = useUser()
-
-  const { data } = useQuery({
-    queryKey: ['login'],
-    queryFn: login,
-  })
 
   const tamImage = '100%'
   return (

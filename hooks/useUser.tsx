@@ -1,7 +1,10 @@
-const useUser = () => {
+import userServices from "../services/user"
+import { ILogin } from "../types/user"
 
-  const login = () => {
-    console.log('test rendering')
+const useUser = () => {
+  const login = async (data: ILogin) => {
+    const user = await userServices.login(data)
+    console.log(user)
   }
 
   return {

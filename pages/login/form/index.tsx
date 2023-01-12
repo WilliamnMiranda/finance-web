@@ -2,18 +2,14 @@ import React from 'react'
 import * as C from './styles'
 import { useForm, SubmitHandler } from "react-hook-form";
 import userServices from '../../../services/user';
+import useUser from '../../../hooks/useUser';
+import { ILogin } from '../../../types/user';
+import { useMutation } from '@tanstack/react-query';
 function FormLogin() {
-
-  interface IFormInput {
-    email: String;
-    password: String;
-  }
-  type Login = {
-    email: string,
-    password: string,
-  }
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = data => userServices.login(data as Login);
+  const { login } = useUser()
+  const mutation = useMutation((data: ILogin) => login(data))
+  const onSubmit: SubmitHandler<ILogin> = data => mutation.mutate(data);
+  const { register, handleSubmit } = useForm<ILogin>();
   return (
     <C.Form onSubmit={handleSubmit(onSubmit)}>
       <C.ContainerInfoLogin>
