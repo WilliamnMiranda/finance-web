@@ -13,15 +13,20 @@ export const Container = styled.section`
 export const Card = styled.article`
 	width: 100%;
 	background-color: white;
+	padding: 20px;
 `;
 export const Incomes = styled(Card)`
-	height: 25%;
+	height: 22%;
 `;
 
 export const Expences = styled(Card)`
-	height: 25%;
+	height: 22%;
 `;
 
 export const Graphic = styled(Card)`
-	height: 45%;
+	height: 40%;
+`;
+export const NameHeader = styled.h2`
+	font-size: 1.3em;
+	color: #656575;
 `;

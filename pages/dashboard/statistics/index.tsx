@@ -6,7 +6,7 @@ interface IHeaderCard {
 }
 const HeaderCard = ({ name }: IHeaderCard) => {
   return (
-    <div>{name}</div>
+    <C.NameHeader>{name}</C.NameHeader>
   )
 }
 
