@@ -50,7 +50,8 @@ const Login = () => {
 export default Login
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { ['finance']: token } = parseCookies(ctx)
+  const { ['finance.token']: token } = parseCookies(ctx)
+  console.log(token)
   if (token)
     return {
       redirect: {

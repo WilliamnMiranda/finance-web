@@ -18,7 +18,11 @@ function FormLogin() {
     pending: 'Promise is pending',
     success: 'Promise resolved 👌',
     error: 'Promise rejected 🤯',
-  }, { toastId: customId }))
+  }, { toastId: customId }), {
+    onSuccess: () => {
+
+    }
+  })
   const onSubmit: SubmitHandler<ILogin> = data => mutation.mutate(data);
   return (
     <C.Form onSubmit={handleSubmit(onSubmit)}>
