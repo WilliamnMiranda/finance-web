@@ -26,7 +26,11 @@ export const ListNavigation = styled.section`
 	gap: 25px;
 	color: rgba(255, 255, 255, 0.7);
 `;
-export const Item = styled.li``;
+export const Item = styled.li`
+	color: rgba(255, 255, 255, 0.6);
+	font-family: ${({ theme }) => theme.fonts.default};
+	font-weight: 400;
+`;
 export const Avatar = styled.article`
 	height: 100px;
 	width: 100px;

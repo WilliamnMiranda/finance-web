@@ -8,6 +8,9 @@ interface IProps {
 		dark: string;
 		default: string;
 	};
+	fonts: {
+		default: string;
+	};
 }
 
 const Theme: IProps = {
@@ -19,6 +22,9 @@ const Theme: IProps = {
 	background: {
 		dark: "#1A1919",
 		default: "#F8F7F1",
+	},
+	fonts: {
+		default: "Inter",
 	},
 };
 
