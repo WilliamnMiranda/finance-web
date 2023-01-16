@@ -1,7 +1,18 @@
 import axios from "axios";
-
+import { parseCookies } from "nookies";
 export const api = axios.create({
 	baseURL: "http://192.168.0.53:8081",
 });
 
-api.interceptors.request.use();
+api.interceptors.request.use(
+	async (config) => {
+		const { ["finance.token"]: token } = parseCookies();
+		if (token) {
+			config.headers!["x-access-token"] = token;
+		}
+		return config;
+	},
+	(error) => {
+		return Promise.reject("aaaaaaaaaaaaaaaaab");
+	},
+);

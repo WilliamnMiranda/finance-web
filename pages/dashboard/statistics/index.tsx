@@ -62,9 +62,3 @@ export default function Statistics() {
   )
 }
 
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}

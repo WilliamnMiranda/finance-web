@@ -4,6 +4,7 @@ import * as C from './styles'
 import Lottie from 'react-lottie'
 import LoginImage from '../../assets/login_lottie.json'
 import FormLogin from "./form";
+import nookies from 'nookies'
 const Login = () => {
   const defaultOptions = {
     loop: true,
@@ -49,8 +50,7 @@ const Login = () => {
 export default Login
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { ['finance.token']: token } = parseCookies(ctx)
-  console.log(token)
+  const { ['finance.token']: token } = nookies.get(ctx)
   if (token)
     return {
       redirect: {
