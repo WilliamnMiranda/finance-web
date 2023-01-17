@@ -15,6 +15,6 @@ export interface Finance {
 }
 
 export interface IFinancesCurrentMonth {
-	expenses: Finance[];
-	deposits: Finance[];
+	expenses: number;
+	deposits: number;
 }

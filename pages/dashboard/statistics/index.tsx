@@ -1,14 +1,18 @@
 import React from 'react'
 import { GetServerSideProps } from "next";
 import * as C from './styles'
+import { IFinancesCurrentMonth } from '../../../types/finances';
 
 interface IHeaderCard {
   name: string
 }
 interface IBodyCard {
-  value: number
+  value: number,
 }
 
+interface IStatistics {
+  finances: IFinancesCurrentMonth
+}
 const HeaderCard = ({ name }: IHeaderCard) => {
   return (
     <C.TittleCard>
@@ -21,7 +25,9 @@ const HeaderCard = ({ name }: IHeaderCard) => {
 const BodyCard = ({ value }: IBodyCard) => {
   return (
     <C.ContainerBody>
-      <C.ValueMonth>$ {value} </C.ValueMonth>
+      <C.ValueMonth>
+        ${value}
+      </C.ValueMonth>
       <C.ComparedToLastMonth>
         2.5%
       </C.ComparedToLastMonth>
@@ -38,7 +44,8 @@ const FooterCard = ({ value }: { value: number }) => {
   )
 }
 
-export default function Statistics() {
+export default function Statistics({ finances }: IStatistics) {
+  const { expenses, deposits } = finances
   return (
     <C.Container>
       <C.MonthStatistics>
@@ -46,13 +53,13 @@ export default function Statistics() {
         <p>Tue, 14 Nov, 2022, 11.30 AM </p>
       </C.MonthStatistics>
       <C.Incomes>
-        <HeaderCard name="Income" />
-        <BodyCard value={2324324.75} />
+        <HeaderCard name="Entradas" />
+        <BodyCard value={deposits} />
         <FooterCard value={2323.70} />
       </C.Incomes>
       <C.Expences>
-        <HeaderCard name="Expenses" />
-        <BodyCard value={2324324.75} />
+        <HeaderCard name="Saidas" />
+        <BodyCard value={expenses} />
         <FooterCard value={2323.70} />
       </C.Expences>
       <C.Graphic>

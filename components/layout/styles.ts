@@ -3,8 +3,11 @@ import styled from "styled-components";
 export const Container = styled.main`
 	display: flex;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: ${({ theme }) => theme.background.default};
+	@media (max-width: 780px) {
+		flex-direction: column;
+	}
 `;
 export const Aside = styled.aside`
 	width: 250px;
@@ -13,6 +16,9 @@ export const Aside = styled.aside`
 	flex-direction: column;
 	align-items: center;
 	padding: 10px;
+	@media (max-width: 780px) {
+		width: 100%;
+	}
 `;
 export const Children = styled.section``;
 export const Navigation = styled.section`

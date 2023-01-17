@@ -13,9 +13,8 @@ interface IDashboard {
 function Dashboard(ctx: IDashboard) {
 
   return (
-
     <Layout>
-      <Statistics />
+      <Statistics finances={ctx.finances} />
     </Layout>
   )
 }
