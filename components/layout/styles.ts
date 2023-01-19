@@ -50,7 +50,8 @@ export const ContainerMenu = styled.div<IContextMenu>`
 		width: 100%;
 		height: 100%;
 		animation-name: ${breatheAnimation};
-		animation-duration: 0.5s;
+		animation-duration: 0.7s;
+		animation-direction: alternate;
 	}
 `;
 
@@ -101,4 +102,8 @@ export const MenuMobileClose = styled.div`
 	font-size: 1.5em;
 	color: white;
 	width: 100%;
+	display: none;
+	@media (max-width: 780px) {
+		display: block;
+	}
 `;
