@@ -1,8 +1,18 @@
 import styled from "styled-components";
-
+import { keyframes } from "styled-components";
 interface IContextMenu {
 	isOpen: boolean;
 }
+
+const breatheAnimation = keyframes`
+ from{
+	height: 0px;
+ }
+ to{
+	height: 100%;
+ }
+`;
+
 export const Container = styled.main`
 	display: flex;
 	width: 100%;
@@ -39,6 +49,8 @@ export const ContainerMenu = styled.div<IContextMenu>`
 		background-color: ${({ theme }) => theme.background.dark};
 		width: 100%;
 		height: 100%;
+		animation-name: ${breatheAnimation};
+		animation-duration: 0.5s;
 	}
 `;
 
@@ -82,7 +94,6 @@ export const MenuMobile = styled.div`
 	color: white;
 	@media (max-width: 750px) {
 		display: block;
-		background-color: red;
 	}
 `;
 

@@ -9,13 +9,13 @@ interface IProps {
   children: ReactNode
 }
 const NavBar = () => {
-  const { isOpen } = useContext(MobileContext)
+  const { isOpen, setIsOpen } = useContext(MobileContext)
   console.log(isOpen)
   return (
     <C.Aside>
-      <C.MenuMobile> <GiHamburgerMenu /></C.MenuMobile>
+      <C.MenuMobile> <GiHamburgerMenu onClick={() => setIsOpen(true)} /></C.MenuMobile>
       <C.ContainerMenu isOpen={isOpen}>
-        <C.MenuMobileClose> <AiOutlineClose /></C.MenuMobileClose>
+        <C.MenuMobileClose> <AiOutlineClose onClick={() => setIsOpen(false)} /></C.MenuMobileClose>
         <C.ContainerInfomartionUser>
           <C.Avatar>  </C.Avatar>
           <C.Name> William </C.Name>
