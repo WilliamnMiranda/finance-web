@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+interface IContextMenu {
+	isOpen: boolean;
+}
 export const Container = styled.main`
 	display: flex;
 	width: 100%;
@@ -21,7 +24,7 @@ export const Aside = styled.aside`
 	}
 `;
 
-export const ContainerMenu = styled.div`
+export const ContainerMenu = styled.div<IContextMenu>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -32,6 +35,7 @@ export const ContainerMenu = styled.div`
 		position: fixed;
 		z-index: 100000;
 		left: 0px;
+		display: ${({ isOpen }) => (isOpen ? "block" : "none")};
 		background-color: ${({ theme }) => theme.background.dark};
 		width: 100%;
 		height: 100%;

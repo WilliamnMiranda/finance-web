@@ -1,17 +1,20 @@
-import { ReactNode } from "react"
+import { ReactNode, useContext } from "react"
 import * as C from './styles'
 import Link from 'next/link'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from "react-icons/ai";
+import { MobileContext } from "../../contexts/MobileContext";
 
 interface IProps {
   children: ReactNode
 }
 const NavBar = () => {
+  const { isOpen } = useContext(MobileContext)
+  console.log(isOpen)
   return (
     <C.Aside>
       <C.MenuMobile> <GiHamburgerMenu /></C.MenuMobile>
-      <C.ContainerMenu>
+      <C.ContainerMenu isOpen={isOpen}>
         <C.MenuMobileClose> <AiOutlineClose /></C.MenuMobileClose>
         <C.ContainerInfomartionUser>
           <C.Avatar>  </C.Avatar>
