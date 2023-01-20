@@ -2,6 +2,7 @@ import React from 'react'
 import { GetServerSideProps } from "next";
 import * as C from './styles'
 import { IFinancesCurrentMonth } from '../../../types/finances';
+import { ChartDonut } from '../../../components/chart.s/donut';
 
 interface IHeaderCard {
   name: string
@@ -64,6 +65,8 @@ export default function Statistics({ finances }: IStatistics) {
       </C.Expences>
       <C.Graphic>
         <HeaderCard name="Graphic" />
+
+        <ChartDonut />
       </C.Graphic>
     </C.Container>
   )
