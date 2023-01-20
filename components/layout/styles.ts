@@ -4,15 +4,6 @@ interface IContextMenu {
 	isOpen: boolean;
 }
 
-const breatheAnimation = keyframes`
- from{
-	height: 0px;
- }
- to{
-	height: 100%;
- }
-`;
-
 export const Container = styled.main`
 	display: flex;
 	width: 100%;
@@ -31,6 +22,8 @@ export const Aside = styled.aside`
 	padding: 10px;
 	@media (max-width: 780px) {
 		width: 100%;
+		height: 50px;
+		justify-content: center;
 	}
 `;
 
@@ -44,14 +37,12 @@ export const ContainerMenu = styled.div<IContextMenu>`
 		justify-content: flex-start;
 		position: fixed;
 		z-index: 100000;
+		top: 50px;
 		left: 0px;
-		display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+		opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
 		background-color: ${({ theme }) => theme.background.dark};
 		width: 100%;
 		height: 100%;
-		animation-name: ${breatheAnimation};
-		animation-duration: 0.7s;
-		animation-direction: alternate;
 	}
 `;
 
@@ -60,6 +51,9 @@ export const Navigation = styled.section`
 	margin-top: 10px;
 	width: 100%;
 	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 `;
 export const ListNavigation = styled.section`
 	display: flex;
@@ -71,6 +65,12 @@ export const Item = styled.li`
 	color: rgba(255, 255, 255, 0.6);
 	font-family: ${({ theme }) => theme.fonts.default};
 	font-weight: 400;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	svg {
+		font-size: 1.4em;
+	}
 `;
 export const ContainerInfomartionUser = styled.section`
 	display: flex;
@@ -106,4 +106,15 @@ export const MenuMobileClose = styled.div`
 	@media (max-width: 780px) {
 		display: block;
 	}
+`;
+
+export const ButtonLogout = styled.button`
+	width: 100%;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 8px;
+	color: white;
+	font-family: ${({ theme }) => theme.fonts.default};
+	font-size: 1em;
+	text-transform: uppercase;
 `;
