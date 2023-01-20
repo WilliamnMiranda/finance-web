@@ -1,7 +1,7 @@
 import React from 'react'
-import { GetServerSideProps } from "next";
 import * as C from './styles'
 import { IFinancesCurrentMonth } from '../../../types/finances';
+import Graphic from './grapichDonut';
 interface IHeaderCard {
   name: string
 }
@@ -63,7 +63,7 @@ export default function Statistics({ finances }: IStatistics) {
       </C.Expences>
       <C.Graphic>
         <HeaderCard name="Graphic" />
-
+        <Graphic />
       </C.Graphic>
     </C.Container>
   )

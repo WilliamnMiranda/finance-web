@@ -61,6 +61,7 @@ export const FooterCard = styled.div`
 `;
 export const Graphic = styled(Card)`
 	height: 47%;
+	justify-content: flex-start;
 `;
 export const TittleCard = styled.div`
 	display: flex;
