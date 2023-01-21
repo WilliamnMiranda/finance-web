@@ -1,4 +1,4 @@
-import { ReactNode, useContext } from "react"
+import { ReactNode, useContext, useEffect, useState } from "react"
 import * as C from './styles'
 import Link from 'next/link'
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -8,7 +8,7 @@ import { RxDashboard } from "react-icons/rx";
 import { BsArrowDownUp, BsPiggyBank } from 'react-icons/bs'
 import { RiNotification3Line } from 'react-icons/ri'
 import { AiOutlineSetting } from 'react-icons/ai'
-
+import Router from "next/router";
 interface IProps {
   children: ReactNode
 }
@@ -54,13 +54,14 @@ const NavBar = () => {
     </C.Aside>
   )
 }
-
 const Layout = ({ children }: IProps) => {
   return (
+
     <C.Container>
       <NavBar />
       <C.Children> {children} </C.Children>
     </C.Container>
+
   )
 }
 export default Layout

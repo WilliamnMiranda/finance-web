@@ -2,6 +2,9 @@ import React from 'react'
 import * as C from './styles'
 import { IFinancesCurrentMonth } from '../../../types/finances';
 import Graphic from './grapichDonut';
+import financesServices from '../../../services/finances';
+import { useQuery } from '@tanstack/react-query';
+import { IconsItem } from '../../../helpers/typesGraphic';
 interface IHeaderCard {
   name: string
 }
@@ -11,6 +14,12 @@ interface IBodyCard {
 
 interface IStatistics {
   finances: IFinancesCurrentMonth
+}
+
+interface IItemGraphic {
+  count: number,
+  soma: number,
+  _id: string
 }
 const HeaderCard = ({ name }: IHeaderCard) => {
   return (
@@ -43,8 +52,17 @@ const FooterCard = ({ value }: { value: number }) => {
   )
 }
 
+
+const ItemListGraphic = ({ item }: { item: IItemGraphic }) => {
+  const colorItem = IconsItem[item._id]
+
+  return <div>
+    {item._id}
+  </div>
+}
 export default function Statistics({ finances }: IStatistics) {
   const { expenses, deposits } = finances
+  const { isLoading, error, data } = useQuery({ queryKey: ['typeOfChartsItems'], queryFn: financesServices.getChartByType })
   return (
     <C.Container>
       <C.MonthStatistics>
@@ -63,7 +81,18 @@ export default function Statistics({ finances }: IStatistics) {
       </C.Expences>
       <C.Graphic>
         <HeaderCard name="Graphic" />
-        <Graphic />
+        <Graphic isLoading={isLoading} data={data} />
+        <C.ContainerItemsGraphic>
+          {
+            data?.map((item: IItemGraphic) => {
+              return (
+                <div key={item._id}>
+                  <ItemListGraphic item={item} />
+                </div>
+              )
+            })
+          }
+        </C.ContainerItemsGraphic>
       </C.Graphic>
     </C.Container>
   )

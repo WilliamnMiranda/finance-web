@@ -85,3 +85,4 @@ export const TittleCard = styled.div`
 	border: none;
 	border-bottom: 1px solid rgba(248, 247, 241, 1);
 `;
+export const ContainerItemsGraphic = styled.div``

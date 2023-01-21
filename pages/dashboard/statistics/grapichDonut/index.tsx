@@ -3,16 +3,27 @@ import { useQuery } from '@tanstack/react-query';
 import financesServices from '../../../../services/finances';
 import { VictoryContainer, VictoryPie } from 'victory';
 import * as C from './styles'
-function Graphic() {
-  const { isLoading, error, data } = useQuery({ queryKey: ['typeOfChartsItems'], queryFn: financesServices.getChartByType })
-  console.log(data)
+import { IconsItem } from '../../../../helpers/typesGraphic'
+import { array } from 'yup';
+interface IGraphic {
+  data: [{
+    _id: string,
+    count: number,
+    soma: number
+  }]
+  isLoading: boolean
+}
+
+const Graphic = ({ data, isLoading }: IGraphic) => {
+  const setColors = () => data.map(item => IconsItem[item._id].color)
+
   return (
     <C.ContainerVictoryPieDonut>
       {!isLoading &&
         <VictoryPie
           containerComponent={<VictoryContainer responsive={false} />}
           padding={0}
-          colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
+          colorScale={setColors()}
           width={140}
           height={140}
           data={data}
