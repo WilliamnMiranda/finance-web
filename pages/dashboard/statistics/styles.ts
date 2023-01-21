@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface IColorItem {
+	color: string;
+}
+
 export const Container = styled.section`
 	height: 90%;
 	width: 310px;
@@ -26,8 +30,11 @@ export const ContainerBody = styled.div`
 `;
 export const ValueMonth = styled.p`
 	font-weight: 700;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	color: "#1150C";
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	font-family: ${({ theme }) => theme.fonts.default};
 `;
 export const ComparedToLastMonth = styled.p`
@@ -85,4 +92,35 @@ export const TittleCard = styled.div`
 	border: none;
 	border-bottom: 1px solid rgba(248, 247, 241, 1);
 `;
-export const ContainerItemsGraphic = styled.div``
+export const ContainerItemsGraphic = styled.div`
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-family: ${({ theme }) => theme.fonts.default};
+	font-weight: 500;
+	font-size: 0.9em;
+`;
+export const ContainerItemGraphic = styled.div`
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+`;
+export const ColorItem = styled.div<IColorItem>`
+	background-color: ${({ color }) => color};
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+`;
+export const ColorAndNameItemGraphic = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 10px;
+`;
+export const ValueItemGraphic = styled.span`
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100px;
+	text-align: end;
+`;

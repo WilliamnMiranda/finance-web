@@ -31,10 +31,11 @@ const HeaderCard = ({ name }: IHeaderCard) => {
 }
 
 const BodyCard = ({ value }: IBodyCard) => {
+  const formatValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)
   return (
     <C.ContainerBody>
       <C.ValueMonth>
-        ${value}
+        {formatValue}
       </C.ValueMonth>
       <C.ComparedToLastMonth>
         2.5%
@@ -54,11 +55,18 @@ const FooterCard = ({ value }: { value: number }) => {
 
 
 const ItemListGraphic = ({ item }: { item: IItemGraphic }) => {
-  const colorItem = IconsItem[item._id]
+  const colorItem = IconsItem[item._id].color
+  const formatValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.soma)
+  return <C.ContainerItemGraphic>
+    <C.ColorAndNameItemGraphic>
+      <C.ColorItem color={colorItem} />
+      {item._id}
+    </C.ColorAndNameItemGraphic>
 
-  return <div>
-    {item._id}
-  </div>
+    <C.ValueItemGraphic>
+      {formatValue}
+    </C.ValueItemGraphic>
+  </C.ContainerItemGraphic>
 }
 export default function Statistics({ finances }: IStatistics) {
   const { expenses, deposits } = finances
