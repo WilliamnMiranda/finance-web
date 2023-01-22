@@ -62,7 +62,6 @@ const ItemListGraphic = ({ item }: { item: IItemGraphic }) => {
       <C.ColorItem color={colorItem} />
       {item._id}
     </C.ColorAndNameItemGraphic>
-
     <C.ValueItemGraphic>
       {formatValue}
     </C.ValueItemGraphic>
