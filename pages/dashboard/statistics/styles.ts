@@ -1,16 +1,14 @@
 import styled from "styled-components";
-
 interface IColorItem {
 	color: string;
 }
-
 export const Container = styled.section`
 	height: 90%;
 	width: 310px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	padding: 15px 20px;
+	padding: 10px 15px;
 `;
 export const MonthStatistics = styled.section`
 	h2 {
@@ -92,6 +90,7 @@ export const TittleCard = styled.div`
 	border: none;
 	border-bottom: 1px solid rgba(248, 247, 241, 1);
 `;
+
 export const ContainerItemsGraphic = styled.div`
 	margin-top: 15px;
 	display: flex;

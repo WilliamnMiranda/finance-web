@@ -6,7 +6,7 @@ import requestFromServer from '../../helpers/apiServer'
 import financesServices from '../../services/finances'
 import { IFinancesCurrentMonth } from '../../types/finances'
 import Statistics from './statistics'
-
+import * as C from './styles'
 interface IDashboard {
   finances: IFinancesCurrentMonth
 }
@@ -14,7 +14,21 @@ interface IDashboard {
 function Dashboard(ctx: IDashboard) {
   return (
     <Layout>
-      <Statistics finances={ctx.finances} />
+      <C.Container>
+        <Statistics finances={ctx.finances} />
+        <C.ContainerMain>
+          <C.LastTransactions>
+            <C.TableItemsLastTransactions>
+              <tr>
+                <th>Tipo</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th>Data</th>
+              </tr>
+            </C.TableItemsLastTransactions>
+          </C.LastTransactions>
+        </C.ContainerMain>
+      </C.Container>
     </Layout>
   )
 }

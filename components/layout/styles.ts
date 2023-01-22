@@ -7,7 +7,7 @@ interface IContextMenu {
 export const Container = styled.main`
 	display: flex;
 	width: 100%;
-	min-height: 100vh;
+	height: 100vh;
 	background-color: ${({ theme }) => theme.background.default};
 	@media (max-width: 780px) {
 		flex-direction: column;
@@ -46,7 +46,10 @@ export const ContainerMenu = styled.div<IContextMenu>`
 	}
 `;
 
-export const Children = styled.section``;
+export const Children = styled.section`
+	width: 100%;
+	padding: 15px;
+`;
 export const Navigation = styled.section`
 	margin-top: 10px;
 	width: 100%;
