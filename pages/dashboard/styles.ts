@@ -18,10 +18,8 @@ export const cardMain = styled.section`
 export const LastTransactions = styled(cardMain)``;
 export const TableItemsLastTransactions = styled.table`
 	width: 100%;
-
-	th {
-		font-family: ${({ theme }) => theme.fonts.default};
-		color: #656575;
-		font-weight: 300;
-	}
 `;
+export const TittleTable = styled.th`
+	text-align: start;
+`;
+export const TrHead = styled.thead``;

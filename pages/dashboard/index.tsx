@@ -19,12 +19,14 @@ function Dashboard(ctx: IDashboard) {
         <C.ContainerMain>
           <C.LastTransactions>
             <C.TableItemsLastTransactions>
-              <tr>
-                <th>Tipo</th>
-                <th>Categoria</th>
-                <th>Valor</th>
-                <th>Data</th>
-              </tr>
+              <C.TrHead>
+                <tr>
+                  <C.TittleTable>Tipo</C.TittleTable>
+                  <C.TittleTable>Categoria</C.TittleTable>
+                  <C.TittleTable>Valor</C.TittleTable>
+                  <C.TittleTable>Data</C.TittleTable>
+                </tr>
+              </C.TrHead>
             </C.TableItemsLastTransactions>
           </C.LastTransactions>
         </C.ContainerMain>
