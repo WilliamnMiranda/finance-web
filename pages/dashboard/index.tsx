@@ -46,6 +46,7 @@ function Dashboard({ finances, lastFinances }: IDashboard) {
               {lastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
             </C.ContainertemsLastTransactions>
           </C.LastTransactions>
+          <GraphicLine />
         </C.ContainerMain>
       </C.Container>
     </Layout>

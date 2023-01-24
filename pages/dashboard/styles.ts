@@ -20,6 +20,7 @@ export const cardMain = styled.section`
 
 export const LastTransactions = styled(cardMain)`
 	padding: 20px;
+	height: 40%;
 `;
 export const ContainertemsLastTransactions = styled.section`
 	width: 100%;
@@ -27,8 +28,9 @@ export const ContainertemsLastTransactions = styled.section`
 	flex-direction: row;
 	gap: 1%;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	flex-wrap: wrap;
+	height: 95%;
 `;
 export const TittleTable = styled.th`
 	text-align: start;
