@@ -11,7 +11,7 @@ export interface Finance {
 	card: string;
 	created_at: string;
 	updated_at: string;
-	__v: 0;
+	__v: number;
 }
 
 export interface IFinancesCurrentMonth {

@@ -3,31 +3,36 @@ import nookies, { parseCookies, setCookie } from 'nookies'
 import React from 'react'
 import Layout from '../../components/layout'
 import requestFromServer from '../../helpers/apiServer'
-import financesServices from '../../services/finances'
-import { IFinancesCurrentMonth } from '../../types/finances'
+import { Finance, IFinancesCurrentMonth } from '../../types/finances'
 import Statistics from './statistics'
 import * as C from './styles'
 interface IDashboard {
   finances: IFinancesCurrentMonth
+  lastFinances: Finance[]
 }
 
-function Dashboard(ctx: IDashboard) {
+const ItemTableLastTransactions = ({ finance }: { finance: Finance }) => {
+  return (
+    <C.ItemLastTransaction type={finance.type}>
+      <div>{finance.type}</div>
+      <div>{finance.category}</div>
+      <div>{finance.value}</div>
+      <div>{finance.installments.quantity}</div>
+      <div>{finance.created_at}</div>
+    </C.ItemLastTransaction>
+  )
+}
+
+function Dashboard({ finances, lastFinances }: IDashboard) {
   return (
     <Layout>
       <C.Container>
-        <Statistics finances={ctx.finances} />
+        <Statistics finances={finances} />
         <C.ContainerMain>
           <C.LastTransactions>
-            <C.TableItemsLastTransactions>
-              <C.TrHead>
-                <tr>
-                  <C.TittleTable>Tipo</C.TittleTable>
-                  <C.TittleTable>Categoria</C.TittleTable>
-                  <C.TittleTable>Valor</C.TittleTable>
-                  <C.TittleTable>Data</C.TittleTable>
-                </tr>
-              </C.TrHead>
-            </C.TableItemsLastTransactions>
+            <C.ContainertemsLastTransactions>
+              {lastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
+            </C.ContainertemsLastTransactions>
           </C.LastTransactions>
         </C.ContainerMain>
       </C.Container>
@@ -43,11 +48,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const finances = await (
     await apiClient.get("/transaction/getbytype/currentmonth")
   ).data;
+  const lastFinances = await (
+    await apiClient.post("http://localhost:8081/transaction/last")
+  ).data;
+  console.log(lastFinances.length)
   if (token)
     return {
       props: {
-        finances: finances
-      }, // will be passed to the page component as props
+        finances: finances,
+        lastFinances: lastFinances
+      },
     }
   return {
     redirect: {
