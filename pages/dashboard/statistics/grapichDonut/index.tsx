@@ -1,10 +1,7 @@
 import React from 'react'
-import { useQuery } from '@tanstack/react-query';
-import financesServices from '../../../../services/finances';
 import { VictoryContainer, VictoryPie } from 'victory';
 import * as C from './styles'
 import { IconsItem } from '../../../../helpers/typesGraphic'
-import { array } from 'yup';
 interface IGraphic {
   data: [{
     _id: string,

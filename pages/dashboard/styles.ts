@@ -19,15 +19,16 @@ export const cardMain = styled.section`
 `;
 
 export const LastTransactions = styled(cardMain)`
-	padding: 10px;
+	padding: 20px;
 `;
 export const ContainertemsLastTransactions = styled.section`
 	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-	grid-auto-flow: row;
-	gap: 20px;
+	display: flex;
+	flex-direction: row;
+	gap: 1%;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
 `;
 export const TittleTable = styled.th`
 	text-align: start;
@@ -35,16 +36,16 @@ export const TittleTable = styled.th`
 export const ItemLastTransaction = styled.div<ItemLastTransaction>`
 	display: flex;
 	align-items: center;
-	width: 100%;
+	justify-content: space-between;
+	width: 49%;
 	padding: 10px;
 	height: 50px;
-	background-color: pink;
 	border: none;
+	box-shadow: 0px 8px 24px rgba(69, 69, 80, 0.1);
 	border-left: ${({ type }) =>
 		type === "Expense" ? "4px solid red" : "4px solid green"};
-	svg {
-		background-color: grey;
-		font-size: 0.9em;
+	p {
+		color: ${({ type }) => (type === "Expense" ? "red" : "green")};
 	}
 `;
 
@@ -56,6 +57,8 @@ export const ContainerIcon = styled.div`
 	width: 30px;
 	background-color: grey;
 	border-radius: 50%;
+	background-color: grey;
+	font-size: 0.9em;
 `;
 
 export const ContainerType = styled.div`
@@ -64,4 +67,30 @@ export const ContainerType = styled.div`
 	font-family: ${({ theme }) => theme.fonts.default};
 	gap: 10px;
 	font-weight: 500;
+	width: 33%;
+`;
+export const ContainerValue = styled.p`
+	width: 22%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: end;
+	font-family: ${({ theme }) => theme.fonts.default};
+	font-weight: 400;
+`;
+export const ContainerDate = styled.div`
+	font-family: ${({ theme }) => theme.fonts.default};
+	width: 26%;
+`;
+export const ContainerIconType = styled.div<ItemLastTransaction>`
+	color: ${({ type }) => (type === "Expense" ? "red" : "green")};
+`;
+export const Tittle = styled.h2`
+	font-family: ${({ theme }) => theme.fonts.default};
+	font-weight: 600;
+	margin-bottom: 10px;
+	font-size: 1em;
+	color: #1a1919;
+	position: relative;
+	left: 3px;
 `;
