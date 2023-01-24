@@ -34,10 +34,34 @@ export const TittleTable = styled.th`
 `;
 export const ItemLastTransaction = styled.div<ItemLastTransaction>`
 	display: flex;
+	align-items: center;
 	width: 100%;
+	padding: 10px;
 	height: 50px;
-	background-color: red;
+	background-color: pink;
 	border: none;
 	border-left: ${({ type }) =>
 		type === "Expense" ? "4px solid red" : "4px solid green"};
+	svg {
+		background-color: grey;
+		font-size: 0.9em;
+	}
+`;
+
+export const ContainerIcon = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 30px;
+	width: 30px;
+	background-color: grey;
+	border-radius: 50%;
+`;
+
+export const ContainerType = styled.div`
+	display: flex;
+	align-items: center;
+	font-family: ${({ theme }) => theme.fonts.default};
+	gap: 10px;
+	font-weight: 500;
 `;

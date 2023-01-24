@@ -1,24 +1,30 @@
 import { GetServerSideProps } from 'next'
-import nookies, { parseCookies, setCookie } from 'nookies'
+import { parseCookies } from 'nookies'
 import React from 'react'
 import Layout from '../../components/layout'
 import requestFromServer from '../../helpers/apiServer'
+import { IconsItem } from '../../helpers/typesGraphic'
 import { Finance, IFinancesCurrentMonth } from '../../types/finances'
 import Statistics from './statistics'
 import * as C from './styles'
+IconsItem
 interface IDashboard {
   finances: IFinancesCurrentMonth
   lastFinances: Finance[]
 }
 
 const ItemTableLastTransactions = ({ finance }: { finance: Finance }) => {
+  const Icon = IconsItem[finance.category].icon
+  const { type, category, value, created_at } = finance
   return (
     <C.ItemLastTransaction type={finance.type}>
-      <div>{finance.type}</div>
-      <div>{finance.category}</div>
-      <div>{finance.value}</div>
-      <div>{finance.installments.quantity}</div>
-      <div>{finance.created_at}</div>
+      <C.ContainerType>
+        <C.ContainerIcon>{Icon}</C.ContainerIcon>
+        <div>{category}</div>
+      </C.ContainerType>
+      <div>{type}</div>
+      <div>{value}</div>
+      <div>{created_at}</div>
     </C.ItemLastTransaction>
   )
 }
