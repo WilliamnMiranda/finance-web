@@ -11,11 +11,16 @@ import * as C from './styles'
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import GraphicLine from './GraphicLine'
 interface IDashboard {
-  finances: IFinancesCurrentMonth
-  lastFinances: Finance[]
+  finances: IFinancesCurrentMonth,
+  lastFinances: Finance[],
+  financesOfTheLastSixMonths: [{
+    month: number,
+    sumItemsExpense: number,
+    sumItemsDeposits: number,
+  }]
 }
 
-const ItemTableLastTransactions = ({ finance }: { finance: Finance }) => {
+const ItemTableLastTransactions = ({ finance, }: { finance: Finance }) => {
   const Icon = IconsItem[finance.category].icon
   const { type, category, value, created_at } = finance
   const formatedDate = dayjs(created_at).format("DD/MM/YYYY")
@@ -34,7 +39,7 @@ const ItemTableLastTransactions = ({ finance }: { finance: Finance }) => {
   )
 }
 
-function Dashboard({ finances, lastFinances }: IDashboard) {
+function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDashboard) {
   return (
     <Layout>
       <C.Container>
@@ -46,7 +51,7 @@ function Dashboard({ finances, lastFinances }: IDashboard) {
               {lastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
             </C.ContainertemsLastTransactions>
           </C.LastTransactions>
-          <GraphicLine />
+          <div><GraphicLine financesOfTheLastSixMonths={financesOfTheLastSixMonths} /></div>
         </C.ContainerMain>
       </C.Container>
     </Layout>
@@ -64,12 +69,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const lastFinances = await (
     await apiClient.post("http://localhost:8081/transaction/last")
   ).data;
-  console.log(lastFinances.length)
+  const financesOfTheLastSixMonths = await (
+    await apiClient.get("http://localhost:8081/aggregation/getByLastMonths")
+  ).data;
   if (token)
     return {
       props: {
         finances: finances,
-        lastFinances: lastFinances
+        lastFinances: lastFinances,
+        financesOfTheLastSixMonths: financesOfTheLastSixMonths
       },
     }
   return {
