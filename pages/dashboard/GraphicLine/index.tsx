@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryBar, VictoryChart, VictoryContainer, VictoryGroup, VictoryLine } from 'victory';
+import { LabelHelpers, VictoryBar, VictoryChart, VictoryContainer, VictoryGroup, VictoryLine } from 'victory';
 
 interface IGrapichLine {
   financesOfTheLastSixMonths: [{
@@ -25,16 +25,26 @@ function GraphicLine({ financesOfTheLastSixMonths }: IGrapichLine) {
     }
   })
   const [alterWidth, setAlterWidth] = React.useState(0)
+  const [width, setWidth] = React.useState(1200)
+  React.useEffect(() => {
+    if (alterWidth != 0) {
+      if (alterWidth <= 1490)
+        setWidth(900)
+      if (alterWidth <= 1300)
+        setWidth(700)
+    }
+  }, [alterWidth])
+
   React.useEffect(() => {
     window.addEventListener("resize", () => setAlterWidth(window.innerWidth));
-  }, [alterWidth])
-  console.log(alterWidth)
+  }, [])
   return (
     <VictoryChart
       domainPadding={{ x: 50 }}
       containerComponent={<VictoryContainer responsive={true} />}
       singleQuadrantDomainPadding={false}
-      width={1600}
+      //1490 = 900 , 1380 = 700
+      width={width}
       height={500}
     >
       <VictoryGroup offset={30}
@@ -42,7 +52,7 @@ function GraphicLine({ financesOfTheLastSixMonths }: IGrapichLine) {
         style={{
           data: {
             width: 30,
-          }
+          },
         }}
       >
         <VictoryBar
