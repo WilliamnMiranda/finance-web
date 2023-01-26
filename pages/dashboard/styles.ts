@@ -21,6 +21,7 @@ export const ContainerMain = styled.div`
 	padding: 20px 25px;
 	@media (max-width: 780px) {
 		height: auto;
+		padding: 0px 0px;
 	}
 `;
 export const cardMain = styled.section`
@@ -29,8 +30,12 @@ export const cardMain = styled.section`
 `;
 
 export const LastTransactions = styled(cardMain)`
-	padding: 20px;
 	height: 40%;
+	padding: 20px;
+	@media (max-width: 780px) {
+		padding: 0px 0px;
+		height: auto;
+	}
 `;
 export const ContainertemsLastTransactions = styled.section`
 	width: 100%;
@@ -41,6 +46,10 @@ export const ContainertemsLastTransactions = styled.section`
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	max-height: 95%;
+	@media (max-width: 780px) {
+		flex-direction: column;
+		max-height: auto;
+	}
 `;
 export const TittleTable = styled.th`
 	text-align: start;
@@ -60,6 +69,12 @@ export const ItemLastTransaction = styled.div<ItemLastTransaction>`
 	p {
 		color: ${({ type }) => (type === "Expense" ? "red" : "green")};
 	}
+	@media (max-width: 780px) {
+		width: 100%;
+		flex-direction: column;
+		gap: 10px;
+		height: auto;
+	}
 `;
 
 export const ContainerIcon = styled.div`
@@ -73,16 +88,24 @@ export const ContainerIcon = styled.div`
 	font-size: 0.9em;
 `;
 
-export const ContainerType = styled.div`
+export const ContainerTypeAndDate = styled.div`
 	display: flex;
 	align-items: center;
 	font-family: ${({ theme }) => theme.fonts.default};
-	gap: 10px;
 	font-weight: 500;
-	width: 33%;
+	width: 59%;
+	justify-content: space-between;
+	@media (max-width: 780px) {
+		width: 100%;
+	}
+`;
+
+export const ContainerTypeAndIcon = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 10px;
 `;
 export const ContainerValue = styled.p`
-	width: 22%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -92,10 +115,12 @@ export const ContainerValue = styled.p`
 `;
 export const ContainerDate = styled.div`
 	font-family: ${({ theme }) => theme.fonts.default};
-	width: 26%;
 `;
 export const ContainerIconType = styled.div<ItemLastTransaction>`
 	color: ${({ type }) => (type === "Expense" ? "red" : "green")};
+	position: relative;
+	display: flex;
+	align-items: center;
 `;
 export const Tittle = styled.h2`
 	font-family: ${({ theme }) => theme.fonts.default};
@@ -111,4 +136,17 @@ export const ContainerGraphicLine = styled.div`
 	height: 60%;
 	display: flex;
 	flex-direction: column;
+	@media (max-width: 780px) {
+		height: auto;
+	}
+`;
+export const ContainerInfoTransaction = styled.div`
+	width: 23%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@media (max-width: 780px) {
+		width: 100%;
+		padding: 0px 5px;
+	}
 `;

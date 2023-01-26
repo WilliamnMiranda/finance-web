@@ -4,7 +4,7 @@ interface IColorItem {
 }
 export const Container = styled.section`
 	height: 90%;
-	width: 310px;
+	width: 350px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;

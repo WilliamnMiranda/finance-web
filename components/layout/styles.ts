@@ -50,6 +50,9 @@ export const ContainerMenu = styled.div<IContextMenu>`
 export const Children = styled.section`
 	width: 100%;
 	padding: 15px;
+	@media (max-width: 780px) {
+		padding: 0px;
+	}
 `;
 export const Navigation = styled.section`
 	margin-top: 10px;

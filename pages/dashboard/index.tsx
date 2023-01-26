@@ -28,13 +28,17 @@ const ItemTableLastTransactions = ({ finance, }: { finance: Finance }) => {
   const formatedType = type === 'Expense' ? <AiOutlineArrowDown /> : <AiOutlineArrowUp />
   return (
     <C.ItemLastTransaction type={finance.type}>
-      <C.ContainerType>
-        <C.ContainerIcon>{Icon}</C.ContainerIcon>
-        <div>{category}</div>
-      </C.ContainerType>
-      <C.ContainerDate>{formatedDate}</C.ContainerDate>
-      <C.ContainerValue>{formatedValue}</C.ContainerValue>
-      <C.ContainerIconType type={type}>{formatedType}</C.ContainerIconType>
+      <C.ContainerTypeAndDate>
+        <C.ContainerTypeAndIcon>
+          <C.ContainerIcon>{Icon}</C.ContainerIcon>
+          <div>{category}</div>
+        </C.ContainerTypeAndIcon>
+        <C.ContainerDate>{formatedDate}</C.ContainerDate>
+      </C.ContainerTypeAndDate>
+      <C.ContainerInfoTransaction>
+        <C.ContainerValue>{formatedValue}</C.ContainerValue>
+        <C.ContainerIconType type={type}>{formatedType}</C.ContainerIconType>
+      </C.ContainerInfoTransaction>
     </C.ItemLastTransaction>
   )
 }
