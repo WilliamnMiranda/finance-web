@@ -9,6 +9,12 @@ export const Container = styled.section`
 	flex-direction: column;
 	justify-content: space-around;
 	padding: 10px 15px;
+	@media (max-width: 780px) {
+		justify-content: normal;
+		width: 100%;
+		height: auto;
+		gap: 10px;
+	}
 `;
 export const MonthStatistics = styled.section`
 	h2 {
@@ -51,10 +57,16 @@ export const Card = styled.article`
 `;
 export const Incomes = styled(Card)`
 	height: 18%;
+	@media (max-width: 780px) {
+		height: 25%;
+	}
 `;
 
 export const Expences = styled(Card)`
 	height: 18%;
+	@media (max-width: 780px) {
+		height: 25%;
+	}
 `;
 export const FooterCard = styled.div`
 	font-weight: 500;

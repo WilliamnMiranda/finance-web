@@ -11,6 +11,7 @@ export const Container = styled.main`
 	background-color: ${({ theme }) => theme.background.default};
 	@media (max-width: 780px) {
 		flex-direction: column;
+		height: auto;
 	}
 `;
 

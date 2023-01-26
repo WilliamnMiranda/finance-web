@@ -7,6 +7,10 @@ export const Container = styled.div`
 	display: flex;
 	gap: 20px;
 	height: 100%;
+	@media (max-width: 780px) {
+		flex-direction: column;
+		height: auto;
+	}
 `;
 export const ContainerMain = styled.div`
 	background-color: white;
@@ -15,6 +19,9 @@ export const ContainerMain = styled.div`
 	flex-direction: column;
 	gap: 20px;
 	padding: 20px 25px;
+	@media (max-width: 780px) {
+		height: auto;
+	}
 `;
 export const cardMain = styled.section`
 	background: #ffffff;
