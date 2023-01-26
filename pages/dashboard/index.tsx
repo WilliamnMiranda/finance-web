@@ -51,7 +51,10 @@ function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDash
               {lastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
             </C.ContainertemsLastTransactions>
           </C.LastTransactions>
-          <div><GraphicLine financesOfTheLastSixMonths={financesOfTheLastSixMonths} /></div>
+          <C.ContainerGraphicLine>
+            <C.Tittle>Suas transaçoes nos ultimos meses</C.Tittle>
+            <GraphicLine financesOfTheLastSixMonths={financesOfTheLastSixMonths} />
+          </C.ContainerGraphicLine>
         </C.ContainerMain>
       </C.Container>
     </Layout>

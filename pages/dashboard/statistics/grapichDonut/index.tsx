@@ -13,7 +13,7 @@ interface IGraphic {
 
 const Graphic = ({ data, isLoading }: IGraphic) => {
   const setColors = () => data.map(item => IconsItem[item._id].color)
-
+  console.log(data)
   return (
     <C.ContainerVictoryPieDonut>
       {!isLoading &&

@@ -11,6 +11,9 @@ export const Container = styled.div`
 export const ContainerMain = styled.div`
 	background-color: white;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 	padding: 20px 25px;
 `;
 export const cardMain = styled.section`
@@ -27,10 +30,10 @@ export const ContainertemsLastTransactions = styled.section`
 	display: flex;
 	flex-direction: row;
 	gap: 1%;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: wrap;
-	height: 95%;
+	max-height: 95%;
 `;
 export const TittleTable = styled.th`
 	text-align: start;
@@ -43,6 +46,7 @@ export const ItemLastTransaction = styled.div<ItemLastTransaction>`
 	padding: 10px;
 	height: 50px;
 	border: none;
+	margin-bottom: 10px;
 	box-shadow: 0px 8px 24px rgba(69, 69, 80, 0.1);
 	border-left: ${({ type }) =>
 		type === "Expense" ? "4px solid red" : "4px solid green"};
@@ -59,7 +63,6 @@ export const ContainerIcon = styled.div`
 	width: 30px;
 	background-color: grey;
 	border-radius: 50%;
-	background-color: grey;
 	font-size: 0.9em;
 `;
 
@@ -95,4 +98,10 @@ export const Tittle = styled.h2`
 	color: #1a1919;
 	position: relative;
 	left: 3px;
+`;
+export const ContainerGraphicLine = styled.div`
+	width: 100%;
+	height: 60%;
+	display: flex;
+	flex-direction: column;
 `;

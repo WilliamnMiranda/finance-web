@@ -24,12 +24,18 @@ function GraphicLine({ financesOfTheLastSixMonths }: IGrapichLine) {
       y: item.sumItemsDeposits
     }
   })
-
+  const [alterWidth, setAlterWidth] = React.useState(0)
+  React.useEffect(() => {
+    window.addEventListener("resize", () => setAlterWidth(window.innerWidth));
+  }, [alterWidth])
+  console.log(alterWidth)
   return (
     <VictoryChart
-      domainPadding={{ x: 50 }} containerComponent={<VictoryContainer responsive={false} />}
-      width={740}
-      height={340}
+      domainPadding={{ x: 50 }}
+      containerComponent={<VictoryContainer responsive={true} />}
+      singleQuadrantDomainPadding={false}
+      width={1600}
+      height={500}
     >
       <VictoryGroup offset={30}
         colorScale={["red", "green"]}
