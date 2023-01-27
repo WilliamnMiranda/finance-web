@@ -18,7 +18,6 @@ export default function Home() {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { ['finance.token']: token } = parseCookies(ctx)
-  console.log('passei')
   if (!token) {
     return {
       redirect: {

@@ -14,7 +14,6 @@ interface IProps {
 }
 const NavBar = () => {
   const { isOpen, setIsOpen } = useContext(MobileContext)
-  console.log(isOpen)
   return (
     <C.Aside>
       <C.MenuMobile>
