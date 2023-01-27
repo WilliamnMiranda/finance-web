@@ -9,7 +9,7 @@ export const Container = styled.section`
 	flex-direction: column;
 	justify-content: space-around;
 	padding: 10px 15px;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		justify-content: normal;
 		width: 100%;
 		height: auto;
@@ -57,14 +57,14 @@ export const Card = styled.article`
 `;
 export const Incomes = styled(Card)`
 	height: 18%;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		height: 25%;
 	}
 `;
 
 export const Expences = styled(Card)`
 	height: 18%;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		height: 25%;
 	}
 `;

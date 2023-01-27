@@ -7,7 +7,7 @@ export const Container = styled.div`
 	display: flex;
 	gap: 20px;
 	height: 100%;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		flex-direction: column;
 		height: auto;
 	}
@@ -19,7 +19,7 @@ export const ContainerMain = styled.div`
 	flex-direction: column;
 	gap: 20px;
 	padding: 20px 25px;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		height: auto;
 		padding: 0px 0px;
 	}
@@ -32,7 +32,7 @@ export const cardMain = styled.section`
 export const LastTransactions = styled(cardMain)`
 	height: 40%;
 	padding: 20px;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		padding: 0px 0px;
 		height: auto;
 	}
@@ -46,7 +46,7 @@ export const ContainertemsLastTransactions = styled.section`
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	max-height: 95%;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		flex-direction: column;
 		max-height: auto;
 	}
@@ -69,7 +69,7 @@ export const ItemLastTransaction = styled.div<ItemLastTransaction>`
 	p {
 		color: ${({ type }) => (type === "Expense" ? "red" : "green")};
 	}
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		width: 100%;
 		flex-direction: column;
 		gap: 10px;
@@ -95,7 +95,7 @@ export const ContainerTypeAndDate = styled.div`
 	font-weight: 500;
 	width: 59%;
 	justify-content: space-between;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		width: 100%;
 	}
 `;
@@ -136,7 +136,7 @@ export const ContainerGraphicLine = styled.div`
 	height: 56%;
 	display: flex;
 	flex-direction: column;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		height: auto;
 	}
 `;
@@ -145,7 +145,7 @@ export const ContainerInfoTransaction = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		width: 100%;
 		padding: 0px 5px;
 	}

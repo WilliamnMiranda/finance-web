@@ -9,7 +9,7 @@ export const Container = styled.main`
 	width: 100%;
 	height: 100vh;
 	background-color: ${({ theme }) => theme.background.default};
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		flex-direction: column;
 		height: auto;
 	}
@@ -21,7 +21,7 @@ export const Aside = styled.aside`
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		width: 100%;
 		height: 50px;
 		justify-content: center;
@@ -33,7 +33,7 @@ export const ContainerMenu = styled.div<IContextMenu>`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		padding: 20px;
 		justify-content: flex-start;
 		position: fixed;
@@ -50,7 +50,7 @@ export const ContainerMenu = styled.div<IContextMenu>`
 export const Children = styled.section`
 	width: 100%;
 	padding: 15px;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		padding: 0px;
 	}
 `;
@@ -110,7 +110,7 @@ export const MenuMobileClose = styled.div`
 	color: white;
 	width: 100%;
 	display: none;
-	@media (max-width: 780px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		display: block;
 	}
 `;

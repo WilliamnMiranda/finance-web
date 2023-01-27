@@ -11,6 +11,9 @@ interface IProps {
 	fonts: {
 		default: string;
 	};
+	breakpoints: {
+		mobile: string;
+	};
 }
 
 const Theme: IProps = {
@@ -25,6 +28,9 @@ const Theme: IProps = {
 	},
 	fonts: {
 		default: "Inter",
+	},
+	breakpoints: {
+		mobile: "1320px",
 	},
 };
 
