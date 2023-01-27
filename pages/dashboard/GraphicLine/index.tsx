@@ -32,6 +32,8 @@ function GraphicLine({ financesOfTheLastSixMonths }: IGrapichLine) {
         setWidth(900)
       if (alterWidth <= 1300)
         setWidth(700)
+      if (alterWidth <= 800)
+        setWidth(450)
     }
   }, [alterWidth])
 
@@ -43,7 +45,6 @@ function GraphicLine({ financesOfTheLastSixMonths }: IGrapichLine) {
       domainPadding={{ x: 50 }}
       containerComponent={<VictoryContainer responsive={true} />}
       singleQuadrantDomainPadding={false}
-      //1490 = 900 , 1380 = 700
       width={width}
       height={500}
     >

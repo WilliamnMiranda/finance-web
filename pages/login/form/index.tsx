@@ -30,6 +30,7 @@ function FormLogin() {
           aria-invalid={errors.email ? "true" : "false"}
         />
         <C.InputForm
+          type='password'
           placeholder='Digite sua senha'
           {...register("password")}
           error={errors.password?.type === 'required' ? true : false}
