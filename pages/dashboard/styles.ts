@@ -133,7 +133,7 @@ export const Tittle = styled.h2`
 `;
 export const ContainerGraphicLine = styled.div`
 	width: 100%;
-	height: 60%;
+	height: 56%;
 	display: flex;
 	flex-direction: column;
 	@media (max-width: 780px) {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { LabelHelpers, VictoryBar, VictoryChart, VictoryContainer, VictoryGroup, VictoryLine } from 'victory';
+import { useWidthGraphic } from '../../../hooks/useWidthGraphic';
 
 interface IGrapichLine {
   financesOfTheLastSixMonths: [{
@@ -24,35 +25,20 @@ function GraphicLine({ financesOfTheLastSixMonths }: IGrapichLine) {
       y: item.sumItemsDeposits
     }
   })
-  const [alterWidth, setAlterWidth] = React.useState(0)
-  const [width, setWidth] = React.useState(1200)
-  React.useEffect(() => {
-    if (alterWidth != 0) {
-      if (alterWidth <= 1490)
-        setWidth(900)
-      if (alterWidth <= 1300)
-        setWidth(700)
-      if (alterWidth <= 800)
-        setWidth(450)
-    }
-  }, [alterWidth])
-
-  React.useEffect(() => {
-    window.addEventListener("resize", () => setAlterWidth(window.innerWidth));
-  }, [])
+  const { width, offSet } = useWidthGraphic()
   return (
     <VictoryChart
-      domainPadding={{ x: 50 }}
+      domainPadding={{ x: 30 }}
       containerComponent={<VictoryContainer responsive={true} />}
       singleQuadrantDomainPadding={false}
       width={width}
       height={500}
     >
-      <VictoryGroup offset={30}
+      <VictoryGroup offset={offSet}
         colorScale={["red", "green"]}
         style={{
           data: {
-            width: 30,
+            width: offSet,
           },
         }}
       >
