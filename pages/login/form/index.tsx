@@ -15,9 +15,9 @@ function FormLogin() {
   });
   const customId = "custom-id-yes";
   const mutation = useMutation((data: ILogin) => toast.promise(login(data), {
-    pending: 'Promise is pending',
-    success: 'Promise resolved 👌',
-    error: 'Promise rejected 🤯',
+    pending: 'Carregando',
+    success: 'Login efetado com sucesso 👌',
+    error: 'Login ou senha incorretos 🤯',
   }, { toastId: customId }))
   const onSubmit: SubmitHandler<ILogin> = data => mutation.mutate(data);
   return (
@@ -41,7 +41,7 @@ function FormLogin() {
       <C.ButtonLogin>Login</C.ButtonLogin>
 
       <C.ContainerLoginSocial>
-        <span> Or continue with </span>
+        <span> Ou continue com </span>
       </C.ContainerLoginSocial>
     </C.Form>
   )

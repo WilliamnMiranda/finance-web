@@ -40,7 +40,7 @@ const NavBar = () => {
             </C.Item>
             <C.Item>
               <AiOutlineSetting />
-              <Link href="/notifications"> Settings </Link>
+              <Link href="/notifications"> Opções </Link>
             </C.Item>
             <C.Item>
               <BsPiggyBank />

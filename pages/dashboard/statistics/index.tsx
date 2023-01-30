@@ -25,16 +25,16 @@ const HeaderCard = ({ name }: IHeaderCard) => {
   return (
     <C.TittleCard>
       <h2>{name}</h2>
-      <p> Month </p>
+      <p> Mês </p>
     </C.TittleCard>
   )
 }
 
-const BodyCard = ({ value }: IBodyCard) => {
+export const BodyCard = ({ value }: IBodyCard) => {
   const formatValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)
   return (
-    <C.ContainerBody>
-      <C.ValueMonth>
+    <C.ContainerBody data-testid="value">
+      <C.ValueMonth >
         {formatValue}
       </C.ValueMonth>
       <C.ComparedToLastMonth>
@@ -47,7 +47,7 @@ const BodyCard = ({ value }: IBodyCard) => {
 const FooterCard = ({ value }: { value: number }) => {
   return (
     <C.FooterCard>
-      <p>Last week expenses</p>
+      <p>Mês passado</p>
       <span>${value}</span>
     </C.FooterCard>
   )
@@ -73,7 +73,7 @@ export default function Statistics({ finances }: IStatistics) {
   return (
     <C.Container>
       <C.MonthStatistics>
-        <h2>Month Statistics</h2>
+        <h2>Estatísticas do mês</h2>
         <p>Tue, 14 Nov, 2022, 11.30 AM </p>
       </C.MonthStatistics>
       <C.Incomes>

@@ -100,7 +100,7 @@ export const MenuMobile = styled.div`
 	display: none;
 	font-size: 1.5em;
 	color: white;
-	@media (max-width: 750px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		display: block;
 	}
 `;

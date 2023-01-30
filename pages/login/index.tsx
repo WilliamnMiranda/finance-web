@@ -23,13 +23,13 @@ const Login = () => {
           <C.Text>
             <C.ContainerTittle>
               <C.Tittle>
-                <p>Sign in to</p>
-                <p>Access the dashboard</p>
+                <p>Entre para</p>
+                <p>Acessar seu dashboard</p>
               </C.Tittle>
             </C.ContainerTittle>
             <C.Description>
-              <p>If you dont an account</p>
-              <p>you can Register here!</p>
+              <p>Se você não tem uma conta</p>
+              <p>você pode se registrar clicando aqui</p>
             </C.Description>
           </C.Text>
           <C.ContainerImageLottie>

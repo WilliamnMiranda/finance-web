@@ -9,7 +9,6 @@ export const useWidthGraphic = () => {
 		setOffSet(offSet);
 	};
 	const getWidthScreen = () => {
-		console.log(window.innerWidth);
 		const widthScreen = window.innerWidth;
 		if (widthScreen <= 1490) alterWidthScreen(900);
 		if (widthScreen <= 1300) alterWidthScreen(700);
