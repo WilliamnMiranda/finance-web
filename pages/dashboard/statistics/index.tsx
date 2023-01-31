@@ -33,7 +33,7 @@ const HeaderCard = ({ name }: IHeaderCard) => {
 export const BodyCard = ({ value }: IBodyCard) => {
   const formatValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)
   return (
-    <C.ContainerBody data-testid="value">
+    <C.ContainerBody>
       <C.ValueMonth >
         {formatValue}
       </C.ValueMonth>
@@ -69,7 +69,7 @@ const ItemListGraphic = ({ item }: { item: IItemGraphic }) => {
 }
 export default function Statistics({ finances }: IStatistics) {
   const { expenses, deposits } = finances
-  const { isLoading, error, data } = useQuery({ queryKey: ['typeOfChartsItems'], queryFn: financesServices.getChartByType })
+  const { isLoading, data } = useQuery({ queryKey: ['typeOfChartsItems'], queryFn: financesServices.getChartByType })
   return (
     <C.Container>
       <C.MonthStatistics>

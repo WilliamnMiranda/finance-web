@@ -17,6 +17,7 @@ const Graphic = ({ data, isLoading }: IGraphic) => {
     <C.ContainerVictoryPieDonut>
       {!isLoading &&
         <VictoryPie
+          data-testid="graphic"
           containerComponent={<VictoryContainer responsive={false} />}
           padding={0}
           colorScale={setColors()}
