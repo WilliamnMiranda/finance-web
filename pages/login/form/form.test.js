@@ -1,4 +1,4 @@
-const { render, screen, fireEvent } = require('@testing-library/react')
+const { render, screen, fireEvent, waitFor } = require('@testing-library/react')
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import * as reactquery from '@tanstack/react-query'
 import '@testing-library/jest-dom'
@@ -8,7 +8,9 @@ import Theme from '../../../theme/config'
 import { act } from 'react-dom/test-utils';
 
 const mockUseRouter = jest.fn()
-const mockMutation = jest.fn()
+const mockMutation = jest.fn(() => {
+  return Promise.resolve()
+})
 
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),
