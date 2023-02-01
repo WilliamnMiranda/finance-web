@@ -3,20 +3,38 @@ import { createContext, ReactNode, useState, SetStateAction, Dispatch } from "re
 interface IProps {
   children: ReactNode
 }
-export interface IModalContext {
+
+type modalTypes = null | 'create' | 'update'
+
+
+export interface IModal {
   isOpen: boolean,
-  setIsOpen: Dispatch<SetStateAction<boolean>>,
+  type: modalTypes
+}
+
+
+export interface IModalContext {
+  modal: IModal,
+  setModal: Dispatch<SetStateAction<IModal>>,
 }
 
 const initalValue = {
-  isOpen: false,
-  setIsOpen: () => { }
+  modal: {
+    isOpen: false,
+    type: null
+  },
+  setModal: () => { },
 }
+
 export const ModalContext = createContext<IModalContext>(initalValue)
 export const ModalStorage = ({ children }: IProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [modal, setModal] = useState<IModal>({
+    isOpen: true,
+    type: null,
+  })
+  const type = null
   return (
-    <ModalContext.Provider value={{ isOpen, setIsOpen }}>
+    <ModalContext.Provider value={{ modal, setModal }}>
       {children}
     </ModalContext.Provider>
   )

@@ -10,6 +10,7 @@ import Statistics from './statistics'
 import * as C from './styles'
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import GraphicLine from './GraphicLine'
+import ModalCreate from './modalCreate'
 interface IDashboard {
   finances: IFinancesCurrentMonth,
   lastFinances: Finance[],

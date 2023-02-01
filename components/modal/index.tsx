@@ -1,12 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, ReactNode } from 'react'
 import { ModalContext } from '../../contexts/ModalContext'
 import * as C from './style'
+import Create from './create'
 function Modal() {
-  const { isOpen, setIsOpen } = useContext(ModalContext)
+  const { modal } = useContext(ModalContext)
+  const renderComponentModal: { [key: string]: any } = {
+    create: <Create />
+  }
   return (
     <>
-      {isOpen && (
-        <C.ContainerModal></C.ContainerModal>
+      {modal.isOpen && modal.type !== null && (
+        <C.ContainerModal>
+          {
+            modal.type !== null && renderComponentModal[modal.type]
+          }
+        </C.ContainerModal>
       )}
     </>
   )
