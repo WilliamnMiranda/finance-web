@@ -30,7 +30,7 @@ export const cardMain = styled.section`
 `;
 
 export const LastTransactions = styled(cardMain)`
-	height: 40%;
+	height: 43%;
 	padding: 20px;
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		padding: 0px 0px;
@@ -122,10 +122,27 @@ export const ContainerIconType = styled.div<ItemLastTransaction>`
 	display: flex;
 	align-items: center;
 `;
+export const ContainerTittle = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 10px;
+`;
+export const ButtonAddTransaction = styled.button`
+	height: 40px;
+	background-color: #4151e0;
+	border-radius: 8px;
+	padding: 10px;
+	color: white;
+	font-family: ${({ theme }) => theme.fonts.default};
+	font-size: 0.7em;
+	text-transform: uppercase;
+`;
 export const Tittle = styled.h2`
 	font-family: ${({ theme }) => theme.fonts.default};
 	font-weight: 600;
-	margin-bottom: 10px;
+	margin-bottom: 12px;
 	font-size: 1em;
 	color: #1a1919;
 	position: relative;
@@ -133,7 +150,7 @@ export const Tittle = styled.h2`
 `;
 export const ContainerGraphicLine = styled.div`
 	width: 100%;
-	height: 56%;
+	height: 54%;
 	display: flex;
 	flex-direction: column;
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
