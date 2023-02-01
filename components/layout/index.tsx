@@ -9,6 +9,7 @@ import { BsArrowDownUp, BsPiggyBank } from 'react-icons/bs'
 import { RiNotification3Line } from 'react-icons/ri'
 import { AiOutlineSetting } from 'react-icons/ai'
 import Router from "next/router";
+import Modal from "../modal";
 interface IProps {
   children: ReactNode
 }
@@ -55,8 +56,8 @@ const NavBar = () => {
 }
 const Layout = ({ children }: IProps) => {
   return (
-
     <C.Container>
+      <Modal />
       <NavBar />
       <C.Children> {children} </C.Children>
     </C.Container>

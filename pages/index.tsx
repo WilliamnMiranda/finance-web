@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import nookies, { parseCookies } from 'nookies'
 import { GetServerSideProps } from "next";
 import { setCookie } from 'nookies'
+import Modal from "../components/modal";
 export default function Home() {
   return (
     <Layout>
