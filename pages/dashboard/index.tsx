@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
-import React from 'react'
+import React, { useContext } from 'react'
 import Layout from '../../components/layout'
 import requestFromServer from '../../helpers/apiServer'
 import { IconsItem } from '../../helpers/typesGraphic'
@@ -10,7 +10,7 @@ import Statistics from './statistics'
 import * as C from './styles'
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import GraphicLine from './GraphicLine'
-import ModalCreate from './modalCreate'
+import { ModalContext } from '../../contexts/ModalContext'
 interface IDashboard {
   finances: IFinancesCurrentMonth,
   lastFinances: Finance[],
@@ -45,6 +45,7 @@ const ItemTableLastTransactions = ({ finance, }: { finance: Finance }) => {
 }
 
 function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDashboard) {
+  const { setTypeModal } = useContext(ModalContext)
   return (
     <Layout>
       <C.Container>
@@ -53,7 +54,7 @@ function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDash
           <C.LastTransactions>
             <C.ContainerTittle>
               <C.Tittle>Ultimas transações</C.Tittle>
-              <C.ButtonAddTransaction> Adicionar </C.ButtonAddTransaction>
+              <C.ButtonAddTransaction onClick={() => setTypeModal('create', 'open')}> Adicionar </C.ButtonAddTransaction>
             </C.ContainerTittle>
             <C.ContainertemsLastTransactions>
               {lastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}

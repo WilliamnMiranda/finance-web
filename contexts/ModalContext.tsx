@@ -5,7 +5,7 @@ interface IProps {
 }
 
 type modalTypes = null | 'create' | 'update'
-
+type modalAction = 'open' | 'close'
 
 export interface IModal {
   isOpen: boolean,
@@ -16,6 +16,7 @@ export interface IModal {
 export interface IModalContext {
   modal: IModal,
   setModal: Dispatch<SetStateAction<IModal>>,
+  setTypeModal: (type: modalTypes, action: modalAction) => void
 }
 
 const initalValue = {
@@ -24,6 +25,7 @@ const initalValue = {
     type: null
   },
   setModal: () => { },
+  setTypeModal: () => { }
 }
 
 export const ModalContext = createContext<IModalContext>(initalValue)
@@ -32,9 +34,14 @@ export const ModalStorage = ({ children }: IProps) => {
     isOpen: true,
     type: null,
   })
-  const type = null
+  const setTypeModal = (type: modalTypes, action: modalAction) => {
+    setModal({
+      type: type,
+      isOpen: action === 'open' ? true : false
+    })
+  }
   return (
-    <ModalContext.Provider value={{ modal, setModal }}>
+    <ModalContext.Provider value={{ modal, setModal, setTypeModal }}>
       {children}
     </ModalContext.Provider>
   )
