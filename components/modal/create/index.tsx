@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import * as C from './style'
 import { AiFillCloseCircle } from "react-icons/ai";
 import { dataTypes } from './dataOptions';
 import ItemOption from './itemOption';
+import { ModalContext } from '../../../contexts/ModalContext';
 function ModalCreateFinance() {
   const [type, setType] = useState('')
   const [selectedCategory, setCategory] = useState('')
-  console.log(selectedCategory)
+  const { setTypeModal } = useContext(ModalContext)
   return (
     <C.Container>
-      <C.HeaderContainer> <AiFillCloseCircle /> </C.HeaderContainer>
+      <C.HeaderContainer> <AiFillCloseCircle onClick={() => setTypeModal(null, 'close')} /> </C.HeaderContainer>
       <C.ContainerTypeTransaction type={type}>
         <C.Label> * Selecione o tipo de transação </C.Label>
         <C.ContainerOptions>
