@@ -18,8 +18,17 @@ const financesServices = {
 		).data.data;
 	},
 	create: async function (data: ICreateFinance) {
-		console.log(data);
 		return await api.post("/transaction/create", data);
+	},
+	lastFinances: async function () {
+		return await (
+			await api.post("http://localhost:8081/transaction/last")
+		).data;
+	},
+	getByLastMonths: async function () {
+		return await (
+			await api.get("http://localhost:8081/aggregation/getByLastMonths")
+		).data;
 	},
 };
 

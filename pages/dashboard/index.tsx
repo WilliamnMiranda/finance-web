@@ -11,6 +11,8 @@ import * as C from './styles'
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import GraphicLine from './GraphicLine'
 import { ModalContext } from '../../contexts/ModalContext'
+import { useQuery } from '@tanstack/react-query'
+import financesServices from '../../services/finances'
 interface IDashboard {
   finances: IFinancesCurrentMonth,
   lastFinances: Finance[],
@@ -46,10 +48,26 @@ const ItemTableLastTransactions = ({ finance, }: { finance: Finance }) => {
 
 function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDashboard) {
   const { setTypeModal } = useContext(ModalContext)
+  const { data: dataFinances } = useQuery({
+    queryKey: ['finances'],
+    queryFn: financesServices.getByTypeAndCurrentMonth,
+    initialData: finances,
+  })
+  const { data: dataLastFinances } = useQuery({
+    queryKey: ['dataLastFinances'],
+    queryFn: financesServices.lastFinances,
+    initialData: lastFinances,
+  })
+
+  const { data: dataFinancesOfTheLastSixMonths } = useQuery({
+    queryKey: ['dataFinancesOfTheLastSixMonths'],
+    queryFn: financesServices.getByLastMonths,
+    initialData: financesOfTheLastSixMonths,
+  })
   return (
     <Layout>
       <C.Container>
-        <Statistics finances={finances} />
+        <Statistics finances={dataFinances} />
         <C.ContainerMain>
           <C.LastTransactions>
             <C.ContainerTittle>
@@ -57,12 +75,12 @@ function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDash
               <C.ButtonAddTransaction onClick={() => setTypeModal('create', 'open')}> Adicionar </C.ButtonAddTransaction>
             </C.ContainerTittle>
             <C.ContainertemsLastTransactions>
-              {lastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
+              {dataLastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
             </C.ContainertemsLastTransactions>
           </C.LastTransactions>
           <C.ContainerGraphicLine>
             <C.Tittle>Suas transaçoes nos ultimos meses</C.Tittle>
-            <GraphicLine financesOfTheLastSixMonths={financesOfTheLastSixMonths} />
+            <GraphicLine financesOfTheLastSixMonths={dataFinancesOfTheLastSixMonths} />
           </C.ContainerGraphicLine>
         </C.ContainerMain>
       </C.Container>
