@@ -8,6 +8,7 @@ import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { ModalContext } from "../contexts/ModalContext";
 import financesServices from "../services/finances";
+import { ICreateFinance } from "../types/finances";
 
 const useCreateContext = () => {
 	const [type, setType] = useState("");
@@ -25,25 +26,28 @@ const useCreateContext = () => {
 		onChange(false);
 		setTypeModal(null, "close");
 	};
-	const mutation = useMutation((data: any) => financesServices.create(data), {
-		onSuccess() {
-			toast.success("Transacao criada com sucesso", {
-				position: "top-right",
-				autoClose: 5000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme: "light",
-			});
-			queryClient.invalidateQueries({ queryKey: ["typeOfChartsItems"] });
-			resetInfos();
+	const mutation = useMutation(
+		(data: ICreateFinance) => financesServices.create(data),
+		{
+			onSuccess() {
+				toast.success("Transacao criada com sucesso", {
+					position: "top-right",
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "light",
+				});
+				queryClient.invalidateQueries({ queryKey: ["typeOfChartsItems"] });
+				resetInfos();
+			},
+			onError() {
+				console.log("error");
+			},
 		},
-		onError() {
-			console.log("error");
-		},
-	});
+	);
 
 	const newTransaction = async () => {
 		const data = {

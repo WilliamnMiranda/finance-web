@@ -1,4 +1,5 @@
 import { api } from "../helpers/Api";
+import { ICreateFinance } from "../types/finances";
 
 const financesServices = {
 	getByTypeAndCurrentMonth: async () => {
@@ -16,7 +17,7 @@ const financesServices = {
 			})
 		).data.data;
 	},
-	create: async function (data: any) {
+	create: async function (data: ICreateFinance) {
 		console.log(data);
 		return await api.post("/transaction/create", data);
 	},

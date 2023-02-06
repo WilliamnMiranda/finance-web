@@ -18,3 +18,10 @@ export interface IFinancesCurrentMonth {
 	expenses: number;
 	deposits: number;
 }
+
+export interface ICreateFinance {
+	type: string;
+	value: string;
+	category: string;
+	name: string;
+}
