@@ -7,7 +7,7 @@ interface ICheckBox {
 }
 export const Container = styled.div`
   border-radius: 15px;
-  width: 600px;
+  width: 500px;
   background-color: white;
   padding: 20px;
   z-index: 100000000000000000000000000;
@@ -141,4 +141,19 @@ export const ContainerInputsInstallments = styled.div`
 `
 export const ContainerInputInstallments = styled.div`
   width: 47%;
+`
+
+export const ButtonCreate = styled.button`
+   height: 50px;
+  border-radius: 10px;
+  background-color: #1a87dd;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: ${({ theme }) => theme.fonts.default};
+  font-weight: 500;
+  margin-top: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1em;
 `

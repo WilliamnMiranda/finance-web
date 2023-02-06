@@ -16,6 +16,10 @@ const financesServices = {
 			})
 		).data.data;
 	},
+	create: async function (data: any) {
+		console.log(data);
+		return await api.post("/transaction/create", data);
+	},
 };
 
 export default financesServices;

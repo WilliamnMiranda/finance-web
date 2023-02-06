@@ -5,13 +5,20 @@ import { dataTypes } from './dataOptions';
 import ItemOption from './itemOption';
 import { ModalContext } from '../../../contexts/ModalContext';
 import { AiOutlineCheck } from "react-icons/ai";
+import useCreateContext from '../../../hooks/useCreateFinance';
 function ModalCreateFinance() {
-  const [type, setType] = useState('')
-  const [valueFinance, setValueFinance] = useState('')
-  const [selectedCategory, setCategory] = useState('')
-  const refValueType = useRef('')
-  const [checked, onChange] = useState(false)
   const { setTypeModal } = useContext(ModalContext)
+  const {
+    type,
+    setType,
+    valueFinance,
+    setValueFinance,
+    selectedCategory,
+    setCategory,
+    checked,
+    onChange,
+    newTransaction
+  } = useCreateContext()
   return (
     <C.Container>
       <C.HeaderContainer> <AiFillCloseCircle onClick={() => setTypeModal(null, 'close')} /> </C.HeaderContainer>
@@ -75,6 +82,9 @@ function ModalCreateFinance() {
           )
         }
       </C.ContainerInstallments>
+      <C.ButtonCreate onClick={() => newTransaction()}>
+        criar
+      </C.ButtonCreate>
     </C.Container>
   )
 }
