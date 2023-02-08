@@ -29,7 +29,7 @@ const NavBar = () => {
           <C.ListNavigation>
             <C.Item>
               <RxDashboard />
-              <Link href="/notifications">  Dashboard </Link>
+              <Link href="/dashboard">  Dashboard </Link>
             </C.Item>
             <C.Item>
               <BsArrowDownUp />
@@ -45,7 +45,7 @@ const NavBar = () => {
             </C.Item>
             <C.Item>
               <BsPiggyBank />
-              <Link href="/notifications"> Metas </Link>
+              <Link href="/goals"> Metas </Link>
             </C.Item>
           </C.ListNavigation>
           <C.ButtonLogout> Sair </C.ButtonLogout>
