@@ -97,10 +97,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     await apiClient.get("/transaction/getbytype/currentmonth")
   ).data;
   const lastFinances = await (
-    await apiClient.post("http://localhost:8081/transaction/last")
+    await apiClient.post("/transaction/last")
   ).data;
   const financesOfTheLastSixMonths = await (
-    await apiClient.get("http://localhost:8081/aggregation/getByLastMonths")
+    await apiClient.get("/aggregation/getByLastMonths")
   ).data;
   if (token)
     return {

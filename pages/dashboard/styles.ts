@@ -105,6 +105,7 @@ export const ContainerTypeAndIcon = styled.div`
 	align-items: center;
 	gap: 10px;
 `;
+
 export const ContainerValue = styled.p`
 	white-space: nowrap;
 	overflow: hidden;
