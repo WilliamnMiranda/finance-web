@@ -14,7 +14,7 @@ interface IProps {
 }
 function Goals({ goals }: IProps) {
   const { data: dataGoals } = useQuery({
-    queryKey: ['finances'],
+    queryKey: ['goals'],
     queryFn: goalServices.getAll,
     initialData: goals,
   })
