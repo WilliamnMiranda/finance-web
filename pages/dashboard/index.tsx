@@ -72,7 +72,7 @@ function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDash
           <C.LastTransactions>
             <C.ContainerTittle>
               <C.Tittle>Ultimas transações</C.Tittle>
-              <C.ButtonAddTransaction onClick={() => setTypeModal('create', 'open')}> Adicionar </C.ButtonAddTransaction>
+              <C.ButtonAddTransaction onClick={() => setTypeModal('createFinance', 'open')}> Adicionar </C.ButtonAddTransaction>
             </C.ContainerTittle>
             <C.ContainertemsLastTransactions>
               {dataLastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}

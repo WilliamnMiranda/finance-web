@@ -4,7 +4,7 @@ interface IProps {
   children: ReactNode
 }
 
-type modalTypes = null | 'create' | 'update'
+type modalTypes = null | 'createFinance' | 'createGoal'
 type modalAction = 'open' | 'close'
 
 export interface IModal {

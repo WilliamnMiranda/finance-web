@@ -12,15 +12,6 @@ export const Container = styled.div`
   padding: 20px;
   z-index: 100000000000000000000000000;
 `
-export const HeaderContainer = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    svg{
-      cursor: pointer;
-      font-size: 1.5em;
-    }
-`
 export const InputText = styled.input`
   width: 100%;
   height: 40px;

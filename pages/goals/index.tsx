@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { GetServerSideProps, GetStaticProps } from 'next'
 import { parseCookies } from 'nookies'
-import React from 'react'
+import React, { useContext } from 'react'
+import { AiFillPlusCircle } from 'react-icons/ai'
 import Layout from '../../components/layout'
+import { ModalContext } from '../../contexts/ModalContext'
 import requestFromServer from '../../helpers/apiServer'
 import goalServices from '../../services/goals'
 import { IGoal } from '../../types/goal'
@@ -18,12 +20,15 @@ function Goals({ goals }: IProps) {
     queryFn: goalServices.getAll,
     initialData: goals,
   })
-  console.log(dataGoals)
+  const { setTypeModal } = useContext(ModalContext)
   return (
     <Layout>
       <C.Container>
         <C.Goals>
-          <C.HeaderGoal> Seus Metas </C.HeaderGoal>
+          <C.HeaderGoal>
+            Seus Metas
+            <AiFillPlusCircle onClick={() => setTypeModal('createGoal', 'open')} />
+          </C.HeaderGoal>
           <C.ContainerGoals>
             {
               dataGoals?.map((goal: IGoal) => <Goal key={goal._id} goal={goal} />)
@@ -31,7 +36,10 @@ function Goals({ goals }: IProps) {
           </C.ContainerGoals>
         </C.Goals>
         <C.GoalsGroup>
-          <C.HeaderGoal> Suas metas Compartilhadas </C.HeaderGoal>
+          <C.HeaderGoal>
+            Suas metas Compartilhadas
+            <AiFillPlusCircle />
+          </C.HeaderGoal>
           <C.ContainerGoals>
 
           </C.ContainerGoals>
