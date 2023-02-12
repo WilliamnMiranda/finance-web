@@ -6,6 +6,9 @@ export const Container = styled.div`
 	background-color: white;
 	padding: 20px;
 	z-index: 100000000000000000000000000;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 `;
 export const IconInput = styled.div`
 	display: flex;
@@ -25,10 +28,10 @@ export const ContainerInput = styled.div`
 	width: 100%;
 	display: flex;
 	align-items: center;
-	margin-top: 10px;
+	margin-top: 5px;
 `;
 
-export const InputText = styled.input`
+export const InputTextValue = styled.input`
 	width: 100%;
 	height: 40px;
 	outline: none;
@@ -38,6 +41,10 @@ export const InputText = styled.input`
 	font-family: ${({ theme }) => theme.fonts.default};
 	font-weight: 500;
 	font-size: 1.3em;
+`;
+
+export const InputText = styled(InputTextValue)`
+	border-left: 1px solid rgba(0, 0, 0, 0.2);
 `;
 
 export const Label = styled.div`
