@@ -7,3 +7,9 @@ export interface IGoal {
 	created_at: string;
 	updated_at: string;
 }
+
+export interface ICreateGoal {
+	name: string;
+	value: number;
+	wallet: number;
+}

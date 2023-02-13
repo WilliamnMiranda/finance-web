@@ -1,21 +1,19 @@
 import React, { useContext, useRef, useState } from 'react'
 import * as C from './style'
 import { ModalContext } from '../../../contexts/ModalContext';
-import useCreateContext from '../../../hooks/useCreateFinance';
 import ButtonSubmit from '../../button/submit';
+import useCreateGoal from '../../../hooks/useCreateGoal';
 function CreateGoal() {
   const { setTypeModal } = useContext(ModalContext)
   const {
-    type,
-    setType,
-    valueFinance,
-    setValueFinance,
-    selectedCategory,
-    setCategory,
-    checked,
-    onChange,
-    newTransaction
-  } = useCreateContext()
+    setName,
+    setWallet,
+    setValue,
+    newTransaction,
+    name,
+    wallet,
+    value
+  } = useCreateGoal()
   const teste = (a: any) => {
     return 'a'
   }
@@ -26,7 +24,7 @@ function CreateGoal() {
         <C.ContainerValue>
           <C.Label> * Qual nome da sua meta ?   </C.Label>
           <C.ContainerInput>
-            <C.InputText value={valueFinance} onChange={(event) => setValueFinance(event.target.value)} />
+            <C.InputText value={name} onChange={(event) => setName(event.target.value)} />
           </C.ContainerInput>
         </C.ContainerValue>
 
@@ -36,7 +34,7 @@ function CreateGoal() {
             <C.IconInput>
               R$
             </C.IconInput>
-            <C.InputTextValue value={valueFinance} onChange={(event) => setValueFinance(event.target.value)} />
+            <C.InputTextValue value={value} onChange={(event) => setValue(event.target.value)} />
           </C.ContainerInput>
         </C.ContainerValue>
 
@@ -46,11 +44,11 @@ function CreateGoal() {
             <C.IconInput>
               R$
             </C.IconInput>
-            <C.InputTextValue value={valueFinance} onChange={(event) => setValueFinance(event.target.value)} />
+            <C.InputTextValue value={wallet} onChange={(event) => setWallet(event.target.value)} />
           </C.ContainerInput>
         </C.ContainerValue>
 
-        <ButtonSubmit onClick={() => teste('a')} />
+        <ButtonSubmit onClick={() => newTransaction()} />
       </C.Container>
     </div>
   )
