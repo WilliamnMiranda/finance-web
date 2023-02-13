@@ -12,8 +12,6 @@ const useCreateContext = () => {
 	const error = useRef(false);
 	const { setTypeModal } = useContext(ModalContext);
 	const queryClient = useQueryClient();
-	const description = "adsad";
-	const card = null;
 	const resetInfos = () => {
 		setName("");
 		setValue("");
@@ -58,9 +56,9 @@ const useCreateContext = () => {
 			return;
 		}
 		const data = {
-			value: 20,
-			wallet: 12,
-			name: "aaaa",
+			value,
+			wallet,
+			name,
 		};
 		mutation.mutate(data);
 	};

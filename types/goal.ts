@@ -10,6 +10,6 @@ export interface IGoal {
 
 export interface ICreateGoal {
 	name: string;
-	value: number;
-	wallet: number;
+	value: string;
+	wallet: string;
 }
