@@ -1,7 +1,7 @@
 import axios from "axios";
 import { parseCookies } from "nookies";
 export const api = axios.create({
-	baseURL: "http://192.168.0.53:8081",
+	baseURL: "http://localhost:8081",
 });
 
 api.interceptors.request.use(

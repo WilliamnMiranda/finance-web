@@ -15,6 +15,9 @@ export const Container = styled.section`
 		height: auto;
 		gap: 10px;
 	}
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+		height: 100%;
+	}
 `;
 export const MonthStatistics = styled.section`
 	h2 {
@@ -111,6 +114,7 @@ export const ContainerItemsGraphic = styled.div`
 	font-family: ${({ theme }) => theme.fonts.default};
 	font-weight: 500;
 	font-size: 0.9em;
+	overflow-x: auto;
 `;
 export const ContainerItemGraphic = styled.div`
 	display: flex;

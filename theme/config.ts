@@ -13,6 +13,7 @@ interface IProps {
 	};
 	breakpoints: {
 		mobile: string;
+		desktop: string;
 	};
 }
 
@@ -31,6 +32,7 @@ const Theme: IProps = {
 	},
 	breakpoints: {
 		mobile: "1320px",
+		desktop: "1700px",
 	},
 };
 
