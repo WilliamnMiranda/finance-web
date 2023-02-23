@@ -13,6 +13,7 @@ import GraphicLine from './GraphicLine'
 import { ModalContext } from '../../contexts/ModalContext'
 import { useQuery } from '@tanstack/react-query'
 import financesServices from '../../services/finances'
+import EmptyItems from '../../components/Empty_Items'
 interface IDashboard {
   finances: IFinancesCurrentMonth,
   lastFinances: Finance[],
@@ -76,9 +77,8 @@ function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDash
             </C.ContainerTittle>
             <C.ContainertemsLastTransactions>
               {dataLastFinances.length <= 0 ? 
-              <div>
-                Voce nao possui transacoes
-              </div> : dataLastFinances.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
+              <EmptyItems text="voce nao possui transacoes"/>
+              : dataLastFinances.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
             </C.ContainertemsLastTransactions>
           </C.LastTransactions>
           <C.ContainerGraphicLine>
