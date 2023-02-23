@@ -3,7 +3,7 @@ import { parseCookies } from "nookies";
 
 const requestFromServer = (ctx: any) => {
 	const api = axios.create({
-		baseURL: "http://localhost:8081"
+		baseURL: "http://localhost:8081",
 	});
 
 	api.interceptors.request.use(

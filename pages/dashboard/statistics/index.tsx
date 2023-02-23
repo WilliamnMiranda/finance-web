@@ -69,6 +69,7 @@ const ItemListGraphic = ({ item }: { item: IItemGraphic }) => {
 }
 export default function Statistics({ finances }: IStatistics) {
   const { expenses, deposits } = finances
+  console.log(finances)
   const { isLoading, data } = useQuery({ queryKey: ['typeOfChartsItems'], queryFn: financesServices.getChartByType })
   return (
     <C.Container>

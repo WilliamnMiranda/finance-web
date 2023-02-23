@@ -75,7 +75,10 @@ function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDash
               <C.ButtonAddTransaction onClick={() => setTypeModal('createFinance', 'open')}> Adicionar </C.ButtonAddTransaction>
             </C.ContainerTittle>
             <C.ContainertemsLastTransactions>
-              {dataLastFinances?.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
+              {dataLastFinances.length <= 0 ? 
+              <div>
+                Voce nao possui transacoes
+              </div> : dataLastFinances.map((finance: Finance) => <ItemTableLastTransactions finance={finance} key={finance._id} />)}
             </C.ContainertemsLastTransactions>
           </C.LastTransactions>
           <C.ContainerGraphicLine>
@@ -96,6 +99,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const finances = await (
     await apiClient.get("/transaction/getbytype/currentmonth")
   ).data;
+  console.log(finances)
   const lastFinances = await (
     await apiClient.post("/transaction/last")
   ).data;
