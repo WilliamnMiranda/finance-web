@@ -1,11 +1,12 @@
+import * as C from  './styles'
 interface IProps {
   text : string
 }
 const EmptyItems = ({ text } : IProps) => {
   return (
-    <div>
-      <p> {text} </p>
-    </div>
+    <C.Container>
+      <C.ContainerText> {text} </C.ContainerText>
+    </C.Container>
   )
 }
 

@@ -65,6 +65,13 @@ function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDash
     queryFn: financesServices.getByLastMonths,
     initialData: financesOfTheLastSixMonths,
   })
+  const [{sumItemsExpense,sumItemsDeposits}] = dataFinancesOfTheLastSixMonths
+  console.log(sumItemsExpense ,sumItemsDeposits)
+  const showGraphicLine = () => {
+    if(sumItemsExpense || sumItemsDeposits)
+      return true
+    return false
+  }
   return (
     <Layout>
       <C.Container>
@@ -83,7 +90,11 @@ function Dashboard({ finances, lastFinances, financesOfTheLastSixMonths }: IDash
           </C.LastTransactions>
           <C.ContainerGraphicLine>
             <C.Tittle>Suas transaçoes nos ultimos meses</C.Tittle>
-            <GraphicLine financesOfTheLastSixMonths={dataFinancesOfTheLastSixMonths} />
+            {showGraphicLine() ? 
+             <GraphicLine financesOfTheLastSixMonths={dataFinancesOfTheLastSixMonths} />:
+             <EmptyItems text="voce nao possui transacoes"/>
+            }
+            
           </C.ContainerGraphicLine>
         </C.ContainerMain>
       </C.Container>

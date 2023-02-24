@@ -45,6 +45,7 @@ export const ContainertemsLastTransactions = styled.section`
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: wrap;
+	height: 95%;
 	max-height: 95%;
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		flex-direction: column;
