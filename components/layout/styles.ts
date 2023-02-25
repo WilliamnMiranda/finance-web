@@ -41,6 +41,7 @@ export const ContainerMenu = styled.div<IContextMenu>`
 		top: 50px;
 		left: 0px;
 		opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+		z-index: ${({ isOpen }) => (isOpen ? "1000" : "-100")};
 		background-color: ${({ theme }) => theme.background.dark};
 		width: 100%;
 		height: 100%;
